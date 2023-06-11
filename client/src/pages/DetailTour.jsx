@@ -70,7 +70,7 @@ const Detail = () => {
 
       const config = {
         headers: {
-          "Content-type": "multipart/form-data",
+          "Content-type": "application/json",
         },
       };
       // const formData = new FormData();
@@ -87,7 +87,7 @@ const Detail = () => {
         trip_id: Trip?.id,
       };
 
-      console.log(data, "inininin kokojodad");
+      console.log(data, "inininin kontol doni");
 
       const response = await API.post("/transaction", data, config);
       const token = response.data.data.token;
