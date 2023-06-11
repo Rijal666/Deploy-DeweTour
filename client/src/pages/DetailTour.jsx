@@ -64,23 +64,23 @@ const Detail = () => {
     });
   }, [count]);
 
-  // useEffect(() => {
-  //   //change this to the script source you want to load, for example this is snap.js sandbox env
-  //   const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
-  //   //change this according to your client-key
-  //   const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
+  useEffect(() => {
+    //change this to the script source you want to load, for example this is snap.js sandbox env
+    const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
+    //change this according to your client-key
+    const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
 
-  //   let scriptTag = document.createElement("script");
-  //   scriptTag.src = midtransScriptUrl;
-  //   // optional if you want to set script attribute
-  //   // for example snap.js have data-client-key attribute
-  //   scriptTag.setAttribute("data-client-key", myMidtransClientKey);
+    let scriptTag = document.createElement("script");
+    scriptTag.src = midtransScriptUrl;
+    // optional if you want to set script attribute
+    // for example snap.js have data-client-key attribute
+    scriptTag.setAttribute("data-client-key", myMidtransClientKey);
 
-  //   document.body.appendChild(scriptTag);
-  //   return () => {
-  //     document.body.removeChild(scriptTag);
-  //   };
-  // }, []);
+    document.body.appendChild(scriptTag);
+    return () => {
+      document.body.removeChild(scriptTag);
+    };
+  }, []);
 
   const handleBuy = useMutation(async (e) => {
     try {
@@ -116,30 +116,30 @@ const Detail = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      return response.data.data;
 
-      // const token = response.data.data.token;
-      // window.snap.pay(token, {
-      //   onSuccess: function (result) {
-      //     /* You may add your own implementation here */
-      //     console.log(result);
-      //     navigate("/Profile");
-      //   },
-      //   onPending: function (result) {
-      //     /* You may add your own implementation here */
-      //     console.log(result);
-      //     navigate("/Profile");
-      //   },
-      //   onError: function (result) {
-      //     /* You may add your own implementation here */
-      //     console.log(result);
-      //     navigate("/Profile");
-      //   },
-      //   onClose: function () {
-      //     /* You may add your own implementation here */
-      //     alert("you closed the popup without finishing the payment");
-      //   },
-      // });
+      const token = response.data.data.token;
+      window.snap.pay(token, {
+        onSuccess: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+          navigate("/Profile");
+        },
+        onPending: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+          navigate("/Profile");
+        },
+        onError: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+          navigate("/Profile");
+        },
+        onClose: function () {
+          /* You may add your own implementation here */
+          alert("you closed the popup without finishing the payment");
+        },
+      });
+      return response.data.data;
     } catch (error) {
       console.log("transaction failed : ", error);
     }
