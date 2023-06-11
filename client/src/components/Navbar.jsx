@@ -110,9 +110,6 @@ function Navbars() {
                 state.user.is_admin === true ? (
                   <>
                     <NavDropdown
-                      data-aos="flip-left"
-                      data-aos-easing="ease-out-cubic"
-                      data-aos-duration="2000"
                       title={
                         <img
                           src="/images/blank-profile.png"
@@ -122,6 +119,9 @@ function Navbars() {
                             height: "50px",
                             border: "solid orange",
                           }}
+                          data-aos="flip-left"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
                           className="rounded-circle"
                         />
                       }
