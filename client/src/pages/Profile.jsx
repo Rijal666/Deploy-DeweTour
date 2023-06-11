@@ -179,7 +179,7 @@ function Profile() {
                             borderRadius: "10px",
                           }}
                         >
-                          Approve
+                          {item.status}
                         </span>
                       </div>
                       <div className="d-flex">
