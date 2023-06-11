@@ -128,7 +128,7 @@ req := &snap.Request{
   },
   CustomerDetail: &midtrans.CustomerDetails{
     FName: data.Name,
-    Email: data.Gender,
+    Email: data.User.Email,
     Phone: data.Phone,
   },
 }
