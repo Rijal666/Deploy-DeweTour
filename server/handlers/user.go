@@ -7,7 +7,12 @@ import (
 	"dewetour/repositories"
 	"fmt"
 	"net/http"
+	"os"
 
+	"context"
+
+	"github.com/cloudinary/cloudinary-go/v2"
+	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
 )
@@ -86,6 +91,21 @@ func (h *handler) UpdateUser(c *gin.Context){
 			return
 		}
 
+		var ctx = context.Background()
+		var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+		var API_KEY = os.Getenv("API_KEY")
+		var API_SECRET = os.Getenv("API_SECRET")
+			
+		// Add your Cloudinary credentials ...
+		cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	
+		// Upload file to Cloudinary ...
+		resp, err := cld.Upload.Upload(ctx, dataFile, uploader.UploadParams{Folder: "uploads"})
+	
+		if err != nil {
+			fmt.Println(err.Error())
+		}
+
 		if request.Fullname != "" {
 			user.Fullname = request.Fullname
 		}
@@ -102,7 +122,7 @@ func (h *handler) UpdateUser(c *gin.Context){
 			user.Address = request.Address
 		}
 		if request.Image != "" {
-			user.Image = request.Image
+			user.Image = resp.SecureURL
 		}
 
 		data, err := h.UserRepository.UpdateUser(user)
