@@ -22,6 +22,7 @@ function Profile() {
   };
 
   const [state] = useContext(UserContext);
+  console.log(state.user, "nskdkjandnan");
 
   const { data: transactions } = useQuery("transactionCache", async () => {
     const response = await API.get("/transactions");

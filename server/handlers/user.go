@@ -4,9 +4,11 @@ import (
 	resultdto "dewetour/dto/result"
 	userdto "dewetour/dto/user"
 	"dewetour/models"
+	"dewetour/pkg/bcrypt"
 	"dewetour/repositories"
 	"fmt"
 	"net/http"
+
 	"os"
 
 	"context"
@@ -91,6 +93,12 @@ func (h *handler) UpdateUser(c *gin.Context){
 			return
 		}
 
+		password, err := bcrypt.HashingPassword(request.Password)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, resultdto.ErrorResult{Status: http.StatusInternalServerError, Message: err.Error()})
+		return
+	}
+
 		var ctx = context.Background()
 		var CLOUD_NAME = os.Getenv("CLOUD_NAME")
 		var API_KEY = os.Getenv("API_KEY")
@@ -113,7 +121,7 @@ func (h *handler) UpdateUser(c *gin.Context){
 			user.Email = request.Email
 		}
 		if request.Password != "" {
-			user.Password = request.Password
+			user.Password = password
 		}
 		if request.Phone != "" {
 			user.Phone = request.Phone
