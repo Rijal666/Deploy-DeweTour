@@ -63,7 +63,7 @@ func (h *handlerTrip) GetTrip(c *gin.Context) {
 		
 }
 func (h *handlerTrip) CreateTrip(c *gin.Context) {
-	c.Header("Content-Type", "application/json")
+	c.Header("Content-Type", "multipart/form-data")
 
 	
 	UserLogin := c.MustGet("userLogin")
