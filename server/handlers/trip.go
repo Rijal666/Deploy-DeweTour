@@ -18,7 +18,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-var path_file = "http://localhost:5000/uploads/"
+// var path_file = "http://localhost:5000/uploads/"
 
 type handlerTrip struct {
 	TripRepository repositories.TripRepository
