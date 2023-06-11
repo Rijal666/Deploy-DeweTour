@@ -36,8 +36,11 @@ func main() {
 	r.Static("/uploads", "./uploads")
 
 	r.Use(gin.Logger())
+
 	var PORT = os.Getenv("PORT")
+
 	fmt.Println("Server running localhost:" + PORT)
+	
 	r.Run(":" + PORT)
 
 	// fmt.Println("Server Started")
