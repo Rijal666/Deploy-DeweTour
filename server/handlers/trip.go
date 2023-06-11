@@ -38,9 +38,9 @@ func(h *handlerTrip) FindTrips(c *gin.Context) {
 			return
 		}
 
-		for i, p := range trips {
-			trips[i].Image = path_file + p.Image
-		} 
+		// for i, p := range trips {
+		// 	trips[i].Image = path_file + p.Image
+		// } 
 
 		if len(trips) > 0 {
 			c.JSON(http.StatusOK, resultdto.SuccessResult{Status: http.StatusOK, Message: "Data for all users was successfully obtained", Data: convertResponseTrips(trips)})
@@ -61,7 +61,7 @@ func (h *handlerTrip) GetTrip(c *gin.Context) {
 				return
 		}
 
-		trip.Image = path_file + trip.Image
+		// trip.Image = path_file + trip.Image
 
 		c.JSON(http.StatusOK, resultdto.SuccessResult{Status: http.StatusOK, Message: "Trip data successfully obtained", Data: trip})
 		
