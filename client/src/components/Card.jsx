@@ -39,6 +39,12 @@ const Cards = ({ data, search }) => {
                   .includes(search.toLocaleLowerCase())
               ) {
                 return itemSearch;
+              } else if (
+                itemSearch.title
+                  .toLowerCase()
+                  .includes(search.toLocaleLowerCase())
+              ) {
+                return itemSearch;
               }
             })
             .map((trip, i) => {
