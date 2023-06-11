@@ -70,7 +70,7 @@ const Detail = () => {
 
       const config = {
         headers: {
-          "Content-type": "application/json",
+          "Content-type": "multipart/form-data",
         },
       };
       // const formData = new FormData();
