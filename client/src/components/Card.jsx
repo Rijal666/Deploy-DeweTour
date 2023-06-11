@@ -58,6 +58,21 @@ const Cards = ({ data, search }) => {
                   }}
                 >
                   <NavLink href={`/Detail/${trip?.id}`}>
+                    <p
+                      className="text-decoration-none"
+                      style={{
+                        marginLeft: "290px",
+                        marginTop: "30px",
+                        position: "absolute",
+                        background: "white",
+                        borderRadius: "5px 0 0 5px",
+                        textAlign: "center",
+                        width: "50px",
+                        height: "30px",
+                      }}
+                    >
+                      {item.quota}
+                    </p>
                     <Card.Img
                       variant="top"
                       src={trip?.image}
