@@ -64,24 +64,6 @@ const Detail = () => {
     });
   }, [count]);
 
-  useEffect(() => {
-    //change this to the script source you want to load, for example this is snap.js sandbox env
-    const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
-    //change this according to your client-key
-    const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
-
-    let scriptTag = document.createElement("script");
-    scriptTag.src = midtransScriptUrl;
-    // optional if you want to set script attribute
-    // for example snap.js have data-client-key attribute
-    scriptTag.setAttribute("data-client-key", myMidtransClientKey);
-
-    document.body.appendChild(scriptTag);
-    return () => {
-      document.body.removeChild(scriptTag);
-    };
-  }, []);
-
   const handleBuy = useMutation(async (e) => {
     try {
       e.preventDefault();
@@ -108,15 +90,6 @@ const Detail = () => {
       console.log(data, "inininin kokojodad");
 
       const response = await API.post("/transaction", data, config);
-      navigate("/Profile");
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Add Transaction Success",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
       const token = response.data.data.token;
       window.snap.pay(token, {
         onSuccess: function (result) {
@@ -139,12 +112,37 @@ const Detail = () => {
           alert("you closed the popup without finishing the payment");
         },
       });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Add Transaction Success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
       return response.data.data;
     } catch (error) {
       console.log("transaction failed : ", error);
     }
   });
 
+  useEffect(() => {
+    //change this to the script source you want to load, for example this is snap.js sandbox env
+    const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
+    //change this according to your client-key
+    const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
+
+    let scriptTag = document.createElement("script");
+    scriptTag.src = midtransScriptUrl;
+    // optional if you want to set script attribute
+    // for example snap.js have data-client-key attribute
+    scriptTag.setAttribute("data-client-key", myMidtransClientKey);
+
+    document.body.appendChild(scriptTag);
+    return () => {
+      document.body.removeChild(scriptTag);
+    };
+  }, []);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
