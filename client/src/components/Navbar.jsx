@@ -110,7 +110,9 @@ function Navbars() {
                 state.user.is_admin === true ? (
                   <>
                     <NavDropdown
-                      className="animate__flip"
+                      data-aos="flip-left"
+                      data-aos-easing="ease-out-cubic"
+                      data-aos-duration="2000"
                       title={
                         <img
                           src="/images/blank-profile.png"
