@@ -1,7 +1,7 @@
 /** @format */
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { UserContext } from "../context/userContext";
 import { API, setAuthToken } from "../config/api";
 import ModalLogin from "./ModalLogin";
@@ -90,11 +90,11 @@ function Navbars() {
   return (
     <>
       <Navbar
-        // data-aos="fade-up"
-        // data-aos-duration="1000"
+        data-aos="fade-up"
+        data-aos-duration="1000"
         collapseOnSelect
         expand="md"
-        className="lg:px-40 flex flex-row"
+        className="lg:px-40 px-10 flex flex-row"
         style={{
           backgroundImage: `url("/images/bg.png")`,
           backgroundSize: "cover",
@@ -105,7 +105,7 @@ function Navbars() {
           src="/images/icon.png"
           className="lg:w-[19%] w-[28%]"
           alt="#"></img>
-        <Nav className="lg:ms-auto ml-5 lg:gap-4 gap-2 flex-row">
+        <Nav className="lg:ms-auto ml-5 gap-x-2 lg:gap-x-4 flex-row">
           {state.isLogin === true ? (
             state.user.is_admin === true ? (
               <>

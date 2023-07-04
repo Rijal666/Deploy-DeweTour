@@ -11,11 +11,7 @@ const Jumbotron = ({ search, handleSearch }) => {
           width="100%"
           style={{ position: "absolute", top: "0", zIndex: "-1" }}
         />
-        <div
-          className="px-4"
-          // data-aos="fade-up"
-          // data-aos-duration="2000"
-        >
+        <div className="px-4" data-aos="fade-up" data-aos-duration="2000">
           <div>
             <h1
               className="lg:text-[90px] text-[30px] lg:my-40"
