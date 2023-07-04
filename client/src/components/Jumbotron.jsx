@@ -12,12 +12,13 @@ const Jumbotron = ({ search, handleSearch }) => {
           style={{ position: "absolute", top: "0", zIndex: "-1" }}
         />
         <div
-          style={{ padding: "0 70px" }}
-          data-aos="fade-up"
-          data-aos-duration="2000">
+          className="px-4"
+          // data-aos="fade-up"
+          // data-aos-duration="2000"
+        >
           <div>
             <h1
-              className="lg:text-[90px] text-[40px] lg:my-40"
+              className="lg:text-[90px] text-[30px] lg:my-40"
               style={{
                 color: "white",
                 fontWeight: "bold",
@@ -26,11 +27,13 @@ const Jumbotron = ({ search, handleSearch }) => {
               Explore
             </h1>
             <p
-              className="lg:text-[70px] text-[20px]"
+              className="lg:text-[70px] text-[15px] font-bold"
               style={{ color: "white" }}>
               your amazing city together
             </p>
-            <p style={{ color: "white" }} className="lg:text-[20px]">
+            <p
+              style={{ color: "white" }}
+              className="lg:text-[20px] text-[10px]">
               find great places to holiday
             </p>
           </div>

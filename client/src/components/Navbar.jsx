@@ -90,22 +90,22 @@ function Navbars() {
   return (
     <>
       <Navbar
+        // data-aos="fade-up"
+        // data-aos-duration="1000"
         collapseOnSelect
         expand="md"
-        className="lg:px-40"
+        className="lg:px-40 flex flex-row"
         style={{
           backgroundImage: `url("/images/bg.png")`,
           backgroundSize: "cover",
           width: "100%",
           height: "100%",
         }}>
-        <a href="/" data-aos="fade-up" data-aos-duration="1000">
-          <img
-            src="/images/icon.png"
-            className="lg:w-[100%] w-[70%]"
-            alt="#"></img>
-        </a>
-        <Nav className="lg:ms-auto gap-4 flex-row">
+        <img
+          src="/images/icon.png"
+          className="lg:w-[19%] w-[28%]"
+          alt="#"></img>
+        <Nav className="lg:ms-auto ml-5 lg:gap-4 gap-2 flex-row">
           {state.isLogin === true ? (
             state.user.is_admin === true ? (
               <>
@@ -192,19 +192,15 @@ function Navbars() {
           ) : (
             <>
               <Button
-                data-aos="fade-up"
-                data-aos-duration="1000"
                 variant="outline-light"
-                style={{ padding: "5px 30px" }}
+                className="lg:px-[50px] lg:py-[10px] px-[20px] py-[1px]"
                 onClick={handleShowLogin}>
                 Login
               </Button>
               <Button
-                data-aos="fade-up"
-                data-aos-duration="1000"
+                className="lg:px-[50px] lg:py-[10px] px-[10px] py-[1px]"
                 style={{
                   color: "white",
-                  padding: "5px 30px",
                   backgroundColor: "#FFAF00",
                   border: "none",
                 }}

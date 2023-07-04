@@ -50,14 +50,14 @@ const Cards = ({ data, search }) => {
               return (
                 <Card
                   key={i}
-                  className="lg:w-[480px]"
+                  className="lg:w-[480px] w-[300px]"
                   style={{
                     padding: "10px",
                     boxShadow: "2px 2px 20px grey",
                   }}>
                   <NavLink href={`/Detail/${trip?.id}`}>
                     <span
-                      className="text-decoration-none absolute ml-[280px] mt-[30px] lg:ml-[410px]"
+                      className="text-decoration-none absolute ml-[230px] mt-[30px] lg:ml-[410px]"
                       style={{
                         background: "white",
                         borderRadius: "5px 0 0 5px",
