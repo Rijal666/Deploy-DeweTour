@@ -304,7 +304,7 @@ const Detail = () => {
             <img
               src="/images/hibiscus.png"
               alt="#"
-              className="absolute w-[35%] left-[244px] lg:w-[10%] lg:top-[1800px] lg:left-[1342px]"
+              className="absolute w-[35%] left-[248px] lg:w-[10%] lg:top-[1800px] lg:left-[1342px]"
               style={{
                 borderRadius: "6px",
               }}
