@@ -51,7 +51,7 @@ const Jumbotron = ({ search, handleSearch }) => {
               </Button>
             </InputGroup>
           </div>
-          <div className="hidden lg:flex lg:justify-around">
+          <div className="flex justify-around">
             <img src="/images/Card1.png" width="20%" alt="#" />
             <img width="20%" src="/images/card2.png" alt="#" />
             <img width="20%" src="/images/card3.png" alt="#" />

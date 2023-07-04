@@ -1,7 +1,7 @@
 /** @format */
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Nav, Navbar, NavDropdown, Dropdown } from "react-bootstrap";
 import { UserContext } from "../context/userContext";
 import { API, setAuthToken } from "../config/api";
 import ModalLogin from "./ModalLogin";
@@ -90,11 +90,10 @@ function Navbars() {
   return (
     <>
       <Navbar
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        collapseOnSelect
+        // data-aos="fade-up"
+        // data-aos-duration="1000"
         expand="md"
-        className="lg:px-40 px-10 flex flex-row"
+        className="lg:px-40 px-10"
         style={{
           backgroundImage: `url("/images/bg.png")`,
           backgroundSize: "cover",
@@ -109,46 +108,53 @@ function Navbars() {
           {state.isLogin === true ? (
             state.user.is_admin === true ? (
               <>
-                <NavDropdown
-                  title={
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-basic"
+                    className="bg-transparent border-none">
                     <img
-                      src="/images/blank-profile.png"
+                      src={
+                        state.user.image
+                          ? state.user.image
+                          : "/images/blank-profile.png"
+                      }
                       alt=""
                       style={{
                         width: "50px",
                         height: "50px",
                         border: "solid orange",
                       }}
-                      data-aos="flip-left"
-                      data-aos-easing="ease-out-cubic"
-                      data-aos-duration="2000"
-                      className="rounded-circle"
+                      className="rounded-circle mb-0"
                     />
-                  }>
-                  <NavDropdown.Item href="/IncomeTrip">
-                    <img
-                      src="/images/journey.svg"
-                      alt=""
-                      style={{ width: "20px" }}
-                    />
-                    <span className="ms-3 fw-bold">Trip</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logout} href="/">
-                    {" "}
-                    <img
-                      src="/images/logout.svg"
-                      alt=""
-                      style={{ width: "20px" }}
-                    />
-                    <span className="ms-3 fw-bold">Logout</span>
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/IncomeTrip" className="flex">
+                      <img
+                        src="/images/journey.svg"
+                        alt=""
+                        style={{ width: "20px" }}
+                      />
+                      <span className="ms-3 fw-bold">Trip</span>
+                    </Dropdown.Item>
+                    <NavDropdown.Divider />
+                    <Dropdown.Item onClick={logout} href="/" className="flex">
+                      <img
+                        src="/images/logout.svg"
+                        alt=""
+                        style={{ width: "20px" }}
+                      />
+                      <span className="ms-3 fw-bold">Logout</span>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </>
             ) : (
               <>
-                <NavDropdown
-                  title={
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-basic"
+                    className="bg-transparent border-none">
                     <img
                       src={state.user.image ? state.user.image : ImgProfile}
                       alt=""
@@ -157,36 +163,30 @@ function Navbars() {
                         height: "50px",
                         border: "solid orange",
                       }}
-                      className="rounded-circle"
+                      className="rounded-circle mb-0"
                     />
-                  }>
-                  <NavDropdown.Item href="/Profile">
-                    <img
-                      src="/images/user.svg"
-                      alt=""
-                      style={{ width: "20px" }}
-                    />
-                    <span className="ms-3 fw-bold">Profile</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/Payment">
-                    <img
-                      src="/images/bill.svg"
-                      alt=""
-                      style={{ width: "20px" }}
-                    />
-                    <span className="ms-3 fw-bold">pay</span>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logout} href="/">
-                    {" "}
-                    <img
-                      src="/images/logout.svg"
-                      alt=""
-                      style={{ width: "20px" }}
-                    />
-                    <span className="ms-3 fw-bold">Logout</span>
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/Profile" className="flex">
+                      <img
+                        src="/images/user.svg"
+                        alt=""
+                        style={{ width: "20px" }}
+                      />
+                      <span className="ms-3 fw-bold">Profile</span>
+                    </Dropdown.Item>
+                    <NavDropdown.Divider />
+                    <Dropdown.Item onClick={logout} href="/" className="flex">
+                      <img
+                        src="/images/logout.svg"
+                        alt=""
+                        style={{ width: "20px" }}
+                      />
+                      <span className="ms-3 fw-bold">Logout</span>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </>
             )
           ) : (
