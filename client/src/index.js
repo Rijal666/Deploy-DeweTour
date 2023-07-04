@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { UserContextProvider } from "./context/userContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AOS from "aos";
+import "./index.css";
 import "animate.css";
 import "aos/dist/aos.css";
 AOS.init();

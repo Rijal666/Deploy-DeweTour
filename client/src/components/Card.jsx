@@ -20,15 +20,14 @@ const Cards = ({ data, search }) => {
       {data?.length !== 0 ? (
         <div
           data-aos="fade-up"
-          data-aos-duration="1000"
+          data-aos-duration="3000"
           style={{
             marginBottom: "50px",
             display: "flex",
             justifyContent: "center",
             gap: "30px",
             flexWrap: "wrap",
-          }}
-        >
+          }}>
           {data
             ?.filter((itemSearch) => {
               if (search === "") {
@@ -51,28 +50,23 @@ const Cards = ({ data, search }) => {
               return (
                 <Card
                   key={i}
+                  className="lg:w-[480px]"
                   style={{
-                    width: "300px",
                     padding: "10px",
                     boxShadow: "2px 2px 20px grey",
-                  }}
-                >
+                  }}>
                   <NavLink href={`/Detail/${trip?.id}`}>
-                    <p
-                      className="text-decoration-none"
+                    <span
+                      className="text-decoration-none absolute ml-[280px] mt-[30px] lg:ml-[410px]"
                       style={{
-                        marginLeft: "290px",
-                        marginTop: "30px",
-                        position: "absolute",
                         background: "white",
                         borderRadius: "5px 0 0 5px",
                         textAlign: "center",
                         width: "50px",
                         height: "30px",
-                      }}
-                    >
-                      {item.quota}
-                    </p>
+                      }}>
+                      {trip.quota}
+                    </span>
                     <Card.Img
                       variant="top"
                       src={trip?.image}
@@ -87,8 +81,7 @@ const Cards = ({ data, search }) => {
                         </Card.Text>
                         <Card.Text
                           className="ms-auto"
-                          style={{ color: "#878787" }}
-                        >
+                          style={{ color: "#878787" }}>
                           {trip?.country.name}
                         </Card.Text>
                       </div>

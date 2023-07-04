@@ -92,134 +92,128 @@ function Navbars() {
       <Navbar
         collapseOnSelect
         expand="md"
+        className="lg:px-40"
         style={{
           backgroundImage: `url("/images/bg.png")`,
           backgroundSize: "cover",
           width: "100%",
           height: "100%",
-        }}
-      >
-        <Container>
-          <Navbar.Brand href="/" data-aos="fade-up" data-aos-duration="1000">
-            <img src="/images/icon.png" width="70%" alt="#"></img>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ms-auto gap-4">
-              {state.isLogin === true ? (
-                state.user.is_admin === true ? (
-                  <>
-                    <NavDropdown
-                      title={
-                        <img
-                          src="/images/blank-profile.png"
-                          alt=""
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            border: "solid orange",
-                          }}
-                          data-aos="flip-left"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                          className="rounded-circle"
-                        />
-                      }
-                    >
-                      <NavDropdown.Item href="/IncomeTrip">
-                        <img
-                          src="/images/journey.svg"
-                          alt=""
-                          style={{ width: "20px" }}
-                        />
-                        <span className="ms-3 fw-bold">Trip</span>
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item onClick={logout} href="/">
-                        {" "}
-                        <img
-                          src="/images/logout.svg"
-                          alt=""
-                          style={{ width: "20px" }}
-                        />
-                        <span className="ms-3 fw-bold">Logout</span>
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </>
-                ) : (
-                  <>
-                    <NavDropdown
-                      title={
-                        <img
-                          src={state.user.image ? state.user.image : ImgProfile}
-                          alt=""
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            border: "solid orange",
-                          }}
-                          className="rounded-circle"
-                        />
-                      }
-                    >
-                      <NavDropdown.Item href="/Profile">
-                        <img
-                          src="/images/user.svg"
-                          alt=""
-                          style={{ width: "20px" }}
-                        />
-                        <span className="ms-3 fw-bold">Profile</span>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/Payment">
-                        <img
-                          src="/images/bill.svg"
-                          alt=""
-                          style={{ width: "20px" }}
-                        />
-                        <span className="ms-3 fw-bold">pay</span>
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item onClick={logout} href="/">
-                        {" "}
-                        <img
-                          src="/images/logout.svg"
-                          alt=""
-                          style={{ width: "20px" }}
-                        />
-                        <span className="ms-3 fw-bold">Logout</span>
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </>
-                )
-              ) : (
-                <>
-                  <Button
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    variant="outline-light"
-                    style={{ padding: "5px 30px" }}
-                    onClick={handleShowLogin}
-                  >
-                    Login
-                  </Button>
-                  <Button
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    style={{
-                      color: "white",
-                      padding: "5px 30px",
-                      backgroundColor: "#FFAF00",
-                      border: "none",
-                    }}
-                    onClick={handleShowRegister}
-                  >
-                    Register
-                  </Button>
-                </>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+        }}>
+        <a href="/" data-aos="fade-up" data-aos-duration="1000">
+          <img
+            src="/images/icon.png"
+            className="lg:w-[100%] w-[70%]"
+            alt="#"></img>
+        </a>
+        <Nav className="lg:ms-auto gap-4 flex-row">
+          {state.isLogin === true ? (
+            state.user.is_admin === true ? (
+              <>
+                <NavDropdown
+                  title={
+                    <img
+                      src="/images/blank-profile.png"
+                      alt=""
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        border: "solid orange",
+                      }}
+                      data-aos="flip-left"
+                      data-aos-easing="ease-out-cubic"
+                      data-aos-duration="2000"
+                      className="rounded-circle"
+                    />
+                  }>
+                  <NavDropdown.Item href="/IncomeTrip">
+                    <img
+                      src="/images/journey.svg"
+                      alt=""
+                      style={{ width: "20px" }}
+                    />
+                    <span className="ms-3 fw-bold">Trip</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logout} href="/">
+                    {" "}
+                    <img
+                      src="/images/logout.svg"
+                      alt=""
+                      style={{ width: "20px" }}
+                    />
+                    <span className="ms-3 fw-bold">Logout</span>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              <>
+                <NavDropdown
+                  title={
+                    <img
+                      src={state.user.image ? state.user.image : ImgProfile}
+                      alt=""
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        border: "solid orange",
+                      }}
+                      className="rounded-circle"
+                    />
+                  }>
+                  <NavDropdown.Item href="/Profile">
+                    <img
+                      src="/images/user.svg"
+                      alt=""
+                      style={{ width: "20px" }}
+                    />
+                    <span className="ms-3 fw-bold">Profile</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/Payment">
+                    <img
+                      src="/images/bill.svg"
+                      alt=""
+                      style={{ width: "20px" }}
+                    />
+                    <span className="ms-3 fw-bold">pay</span>
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logout} href="/">
+                    {" "}
+                    <img
+                      src="/images/logout.svg"
+                      alt=""
+                      style={{ width: "20px" }}
+                    />
+                    <span className="ms-3 fw-bold">Logout</span>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            )
+          ) : (
+            <>
+              <Button
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                variant="outline-light"
+                style={{ padding: "5px 30px" }}
+                onClick={handleShowLogin}>
+                Login
+              </Button>
+              <Button
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                style={{
+                  color: "white",
+                  padding: "5px 30px",
+                  backgroundColor: "#FFAF00",
+                  border: "none",
+                }}
+                onClick={handleShowRegister}>
+                Register
+              </Button>
+            </>
+          )}
+        </Nav>
       </Navbar>
       <ModalLogin
         show={showLogin}
