@@ -147,11 +147,11 @@ const Detail = () => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -165,9 +165,9 @@ const Detail = () => {
   return (
     <>
       <Navbars />
-      <div style={{ margin: "50px 130px" }}>
-        <h1 className="fw-bold m-0">{Trip?.title}</h1>
-        <h4 style={{ color: "#A8A8A8", fontWeight: "bold" }}>
+      <div className="container mx-auto my-4">
+        <h1 className="fw-bold text-[30px] lg:text-[50px]">{Trip?.title}</h1>
+        <h4 className="text-muted fw-bold lg:text-[30px] mb-3">
           {Trip?.country.name}
         </h4>
         <img src={Trip?.image} className="mb-2" alt="" width="100%" />
@@ -184,41 +184,56 @@ const Detail = () => {
           <div>
             <img src="/images/bekasi.png" alt="" />
           </div>
-        </Carousel>
-        <h4 className="fw-bold my-3">Information Trip</h4>
-        <div className="d-flex justify-content-between">
           <div>
-            <p style={{ color: "#A8A8A8" }}>Accommodation</p>
+            <img src="/images/bekasi3.png" alt="" />
+          </div>
+        </Carousel>
+        <h4 className="fw-bold text-[20px] lg:text-[40px] mt-3 mb-3">
+          Information Trip
+        </h4>
+        <div className="d-flex justify-content-between flex-wrap">
+          <div>
+            <p style={{ color: "#A8A8A8" }} className="lg:text-[20px]">
+              Accommodation
+            </p>
             <div className="d-flex gap-3">
               <img src="/images/hotel.svg" alt="" width="25px" height="25px" />
-              <h5 className="fw-bold">{Trip?.accomodation}</h5>
+              <h5 className="fw-bold lg:text-[20px]">{Trip?.accomodation}</h5>
             </div>
           </div>
           <div>
-            <p style={{ color: "#A8A8A8" }}>Transportation</p>
+            <p style={{ color: "#A8A8A8" }} className="lg:text-[20px]">
+              Transportation
+            </p>
             <div className="d-flex gap-3">
               <img src="/images/plane.svg" alt="" width="25px" height="25px" />
-              <h5 className="fw-bold">{Trip?.transportation}</h5>
+              <h5 className="fw-bold lg:text-[20px]">{Trip?.transportation}</h5>
             </div>
           </div>
           <div>
-            <p style={{ color: "#A8A8A8" }}>Eat</p>
+            <p style={{ color: "#A8A8A8" }} className="lg:text-[20px]">
+              Eat
+            </p>
             <div className="d-flex gap-3">
               <img src="/images/meal.svg" alt="" width="25px" height="25px" />
-              <h5 className="fw-bold">{Trip?.eat}</h5>
+              <h5 className="fw-bold lg:text-[20px]">{Trip?.eat}</h5>
             </div>
           </div>
           <div>
-            <p style={{ color: "#A8A8A8" }}>Duration</p>
+            <p style={{ color: "#A8A8A8" }} className="lg:text-[20px]">
+              Duration
+            </p>
             <div className="d-flex gap-3">
               <img src="/images/time.svg" alt="" width="25px" height="25px" />
-              <h5 className="fw-bold">
+              <h5 className="fw-bold lg:text-[20px]">
                 {Trip?.day} Day {Trip?.night} Night
               </h5>
             </div>
           </div>
           <div>
-            <p style={{ color: "#A8A8A8" }}>Date Trip</p>
+            <p style={{ color: "#A8A8A8" }} className="lg:text-[20px]">
+              Date Trip
+            </p>
             <div className="d-flex gap-3">
               <img
                 src="/images/calendar.svg"
@@ -226,20 +241,24 @@ const Detail = () => {
                 width="25px"
                 height="25px"
               />
-              <h5 className="fw-bold">{Trip?.date_trip}</h5>
+              <h5 className="fw-bold lg:text-[20px]">{Trip?.date_trip}</h5>
             </div>
           </div>
         </div>
-        <h4 className="fw-bold mt-5">Description</h4>
-        <p style={{ color: "#A8A8A8" }}>{Trip?.description}</p>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div className="d-flex gap-2">
-            <h2 style={{ color: "#FFAF00", fontWeight: "bold" }}>
+        <h4 className="fw-bold mt-5 text-[20px] lg:text-[40px]">Description</h4>
+        <p style={{ color: "#A8A8A8" }} className="mb-3">
+          {Trip?.description}
+        </p>
+        <div className="flex justify-between flex-row items-center">
+          <div className="flex gap-2">
+            <h2
+              style={{ color: "#FFAF00", fontWeight: "bold" }}
+              className="text-[15px] lg:text-[30px]">
               {rupiah(Trip?.price)}
             </h2>
-            <h2 className="fw-bold"> / Person</h2>
+            <h2 className="fw-bold text-[15px] lg:text-[30px]"> / Person</h2>
           </div>
-          <div>
+          <div className="flex items-center">
             <img
               src="/images/Minus.png"
               alt=""
@@ -258,39 +277,40 @@ const Detail = () => {
           </div>
         </div>
         <div className="d-flex justify-content-between my-5">
-          <h2 className="fw-bold">Total :</h2>
-          <h2 style={{ color: "#FFAF00", fontWeight: "bold" }}>
+          <h2 className="fw-bold text-[20px] lg:text-[40px]">Total :</h2>
+          <h2
+            style={{ color: "#FFAF00", fontWeight: "bold" }}
+            className="text-[20px] lg:text-[40px]">
             {rupiah(count * Trip?.price)}
           </h2>
         </div>
 
         <div>
-          <h1 className="text-center mb-5">FORMULIR PEMBELIAN TIKET</h1>
+          <h1 className="text-center mb-5 lg:text-[40px]">
+            FORMULIR PEMBELIAN TIKET
+          </h1>
 
           <div
+            className="lg:pt-[80px]"
             style={{
-              margin: "0 200px",
               boxShadow: "2px 2px 20px grey",
               borderRadius: "10px",
             }}>
             <img
               src="/images/palm.png"
               alt="#"
-              width="15%"
-              style={{ position: "absolute" }}
+              className="absolute w-[35%] lg:w-[15%] lg:top-[1802px]"
             />
             <img
               src="/images/hibiscus.png"
               alt="#"
-              width="10%"
+              className="absolute w-[35%] left-[220px] lg:w-[10%] lg:top-[1800px] lg:left-[1342px]"
               style={{
-                position: "absolute",
-                left: "822px",
                 borderRadius: "6px",
               }}
             />
-            <div style={{ padding: " 100px" }}>
-              <Form className="mt-4" onSubmit={(e) => handleBuy.mutate(e)}>
+            <div className="p-[50px]">
+              <Form className="mt-5" onSubmit={(e) => handleBuy.mutate(e)}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput1">
