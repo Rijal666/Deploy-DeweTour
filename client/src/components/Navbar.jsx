@@ -90,8 +90,8 @@ function Navbars() {
   return (
     <>
       <Navbar
-        // data-aos="fade-up"
-        // data-aos-duration="1000"
+        data-aos="fade-up"
+        data-aos-duration="1000"
         expand="md"
         className="lg:px-40 px-10"
         style={{

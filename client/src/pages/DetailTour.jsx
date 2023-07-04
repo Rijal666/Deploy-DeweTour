@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "react-query";
 
 const Detail = () => {
-  document.title = "Detail | DeweTour";
+  document.title = "DeweTour | Detail";
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -272,8 +272,7 @@ const Detail = () => {
               margin: "0 200px",
               boxShadow: "2px 2px 20px grey",
               borderRadius: "10px",
-            }}
-          >
+            }}>
             <img
               src="/images/palm.png"
               alt="#"
@@ -294,8 +293,7 @@ const Detail = () => {
               <Form className="mt-4" onSubmit={(e) => handleBuy.mutate(e)}>
                 <Form.Group
                   className="mb-3"
-                  controlId="exampleForm.ControlInput1"
-                >
+                  controlId="exampleForm.ControlInput1">
                   <Form.Label className="fw-bold">Full Name</Form.Label>
                   <Form.Control
                     className="p-2 mb-3"
@@ -330,8 +328,7 @@ const Detail = () => {
                       border: "none",
                       padding: "10px 40px",
                       marginBottom: "30px",
-                    }}
-                  >
+                    }}>
                     BOOK NOW
                   </Button>
                 </div>
