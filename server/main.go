@@ -19,7 +19,9 @@ func main() {
 		panic("Failed to load env file")
 	}	
 
+
 	mysql.AutoMigrate()
+
 	
 	migration.RunAutoMigrate()
 	gin.SetMode(gin.ReleaseMode)
